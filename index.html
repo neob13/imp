@@ -3,1336 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LSOTECH - Especialistas em manutenção de computadores em Goiânia. Formatação, limpeza, upgrade de hardware e muito mais. Orçamento grátis!">
-    <meta name="keywords" content="manutenção computador, formatação, upgrade hardware, limpeza PC, Goiânia, assistência técnica">
-    <title>LSOTECH | Manutenção de Computadores - Goiânia</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description" content="LSOTECH - Manutenção de computadores em Goiânia. Formatação, limpeza e upgrade de hardware. Orçamento grátis via WhatsApp.">
+    <meta name="keywords" content="manutenção computador, formatação, hardware, Goiânia, assistência técnica">
+    <meta name="author" content="LSOTECH">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="LSOTECH - Manutenção de Computadores em Goiânia">
+    <meta property="og:description" content="Serviços especializados em manutenção de computadores. Formatação, limpeza e upgrade de hardware.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    
+    <title>LSOTECH - Manutenção de Computadores em Goiânia | Assistência Técnica Especializada</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-blue: #2563EB;
-            --dark-blue: #1E40AF;
-            --light-blue: #3B82F6;
-            --accent-cyan: #06B6D4;
-            --dark-gray: #1F2937;
-            --medium-gray: #4B5563;
-            --light-gray: #F3F4F6;
-            --white: #FFFFFF;
-            --success-green: #10B981;
-            --gradient-primary: linear-gradient(135deg, #2563EB, #06B6D4);
-            --gradient-dark: linear-gradient(135deg, #1F2937, #374151);
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
-            --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.15);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        header.scrolled {
-            box-shadow: var(--shadow-md);
-            background: rgba(255, 255, 255, 0.98);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .logo i {
-            font-size: 1.8rem;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-blue);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
-
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .mobile-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--dark-gray);
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: var(--gradient-dark);
-            position: relative;
-            overflow: hidden;
-            padding-top: 80px;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0.1;
-            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            z-index: 2;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            color: var(--white);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .hero-content .highlight {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            line-height: 1.7;
-            animation: fadeInUp 0.8s ease 0.2s both;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.4s both;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: var(--success-green);
-            color: var(--white);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: transparent;
-            color: var(--white);
-            padding: 1rem 2rem;
-            border: 2px solid var(--white);
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--dark-gray);
-            transform: translateY(-3px);
-        }
-
-        .hero-image {
-            position: relative;
-            animation: fadeInRight 1s ease;
-        }
-
-        .hero-illustration {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.1));
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-illustration i {
-            font-size: 10rem;
-            color: rgba(255, 255, 255, 0.2);
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .hero-stats {
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--white);
-            padding: 1.5rem 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-xl);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            width: 90%;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--medium-gray);
-            margin-top: 0.3rem;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 6rem 2rem;
-            background: var(--light-gray);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            display: inline-block;
-            background: var(--gradient-primary);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--medium-gray);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-color: rgba(37, 99, 235, 0.1);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-primary);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--white);
-            font-size: 1.8rem;
-        }
-
-        .service-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: var(--medium-gray);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: var(--medium-gray);
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .service-features li i {
-            color: var(--success-green);
-            font-size: 0.9rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--dark-gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .about-content p {
-            color: var(--medium-gray);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-features {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: var(--light-gray);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .feature-item:hover {
-            background: var(--white);
-            box-shadow: var(--shadow-md);
-            transform: translateX(5px);
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            flex-shrink: 0;
-        }
-
-        .feature-text h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-text p {
-            font-size: 0.95rem;
-            margin: 0;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-illustration {
-            width: 100%;
-            height: 500px;
-            background: var(--gradient-primary);
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 8rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 6rem 2rem;
-            background: var(--gradient-dark);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: var(--gradient-primary);
-            opacity: 0.05;
-            clip-path: circle(50% at 100% 50%);
-        }
-
-        .contact-container {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .contact-container h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-container p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            line-height: 1.7;
-        }
-
-        .contact-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background: var(--success-green);
-            color: var(--white);
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.4);
-        }
-
-        .contact-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 48px rgba(16, 185, 129, 0.5);
-        }
-
-        .contact-info {
-            margin-top: 4rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .info-card i {
-            font-size: 2rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-        }
-
-        .info-card h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
-
-        .info-card p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        /* Footer */
-        footer {
-            background: #111827;
-            color: rgba(255, 255, 255, 0.7);
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
-        .footer-text {
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 2rem;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-        }
-
-        /* WhatsApp Floating Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background: var(--success-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 8px 28px rgba(16, 185, 129, 0.4);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 12px 40px rgba(16, 185, 129, 0.5);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 8px 28px rgba(16, 185, 129, 0.4); }
-            50% { box-shadow: 0 8px 28px rgba(16, 185, 129, 0.6), 0 0 0 15px rgba(16, 185, 129, 0.1); }
-            100% { box-shadow: 0 8px 28px rgba(16, 185, 129, 0.4); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-toggle {
-                display: flex;
-            }
-            
-            .hero-container,
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                position: relative;
-                bottom: 0;
-                margin-top: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-illustration,
-            .about-illustration {
-                height: 350px;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-            
-            nav {
-                padding: 1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .contact-container h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav>
-            <a href="#home" class="logo">
-                <i class="fas fa-desktop"></i>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <i class="fas fa-laptop-code"></i>
                 <span>LSOTECH</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-            <div class="mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            </div>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Início</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">Serviços</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Sobre</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contato</a>
+                    </li>
+                </ul>
+                
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Manutenção de <span class="highlight">Computadores</span> em Goiânia</h1>
-                <p>
-                    Especialistas em formatação, limpeza e upgrade de hardware. 
-                    Atendimento rápido e profissional para deixar seu computador como novo.
-                </p>
-                <div class="hero-buttons">
-                    <a href="https://wa.me/556292923736?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20grátis%20para%20manutenção%20de%20computador." class="btn-primary">
-                        <i class="fab fa-whatsapp"></i>
-                        Solicitar Orçamento Grátis
-                    </a>
-                    <a href="#services" class="btn-secondary">
-                        <i class="fas fa-tools"></i>
-                        Nossos Serviços
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-illustration">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">Clientes Atendidos</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Satisfação</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24h</div>
-                        <div class="stat-label">Atendimento Rápido</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services fade-in">
-        <div class="services-container">
-            <div class="section-header">
-                <span class="section-label">Nossos Serviços</span>
-                <h2 class="section-title">Soluções Completas em TI</h2>
-                <p class="section-description">
-                    Oferecemos serviços especializados de manutenção preventiva e corretiva 
-                    para computadores desktop e notebooks.
-                </p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 class="service-title">Formatação e Reinstalação</h3>
-                    <p class="service-description">
-                        Formatação completa e reinstalação de sistemas operacionais Windows e Linux, 
-                        com configuração otimizada para melhor desempenho.
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero__container container grid">
+                <div class="hero__data">
+                    <h1 class="hero__title">
+                        Manutenção de <span class="hero__title-accent">Computadores</span> em Goiânia
+                    </h1>
+                    <p class="hero__description">
+                        Soluções completas em assistência técnica especializada. Formatação, limpeza e upgrade de hardware com qualidade e agilidade para usuários domésticos e pequenas empresas.
                     </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check-circle"></i> Backup de dados importantes</li>
-                        <li><i class="fas fa-check-circle"></i> Instalação de drivers atualizados</li>
-                        <li><i class="fas fa-check-circle"></i> Configuração de antivírus</li>
-                        <li><i class="fas fa-check-circle"></i> Otimização do sistema</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-broom"></i>
+                    <div class="hero__buttons">
+                        <a href="https://wa.me/5562982923736?text=Olá! Gostaria de solicitar um orçamento para manutenção do meu computador." class="button button--primary" target="_blank" rel="noopener">
+                            <i class="fab fa-whatsapp"></i>
+                            Solicitar Orçamento Grátis
+                        </a>
+                        <a href="#services" class="button button--secondary">
+                            <i class="fas fa-tools"></i>
+                            Ver Serviços
+                        </a>
                     </div>
-                    <h3 class="service-title">Limpeza Física e Lógica</h3>
-                    <p class="service-description">
-                        Limpeza interna e externa completa, remoção de vírus, malware e 
-                        arquivos desnecessários que diminuem o desempenho do computador.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check-circle"></i> Limpeza de coolers e ventoinhas</li>
-                        <li><i class="fas fa-check-circle"></i> Remoção de vírus e malware</li>
-                        <li><i class="fas fa-check-circle"></i> Limpeza de registro do Windows</li>
-                        <li><i class="fas fa-check-circle"></i> Desfragmentação de disco</li>
-                    </ul>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-microchip"></i>
+                
+                <div class="hero__image">
+                    <div class="hero__illustration">
+                        <i class="fas fa-desktop hero__icon"></i>
+                        <div class="hero__floating-elements">
+                            <div class="floating-element floating-element--1">
+                                <i class="fas fa-cog"></i>
+                            </div>
+                            <div class="floating-element floating-element--2">
+                                <i class="fas fa-microchip"></i>
+                            </div>
+                            <div class="floating-element floating-element--3">
+                                <i class="fas fa-memory"></i>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="service-title">Upgrade de Hardware</h3>
-                    <p class="service-description">
-                        Troca e upgrade de componentes para melhorar o desempenho: 
-                        memória RAM, SSD, HD, placa de vídeo e muito mais.
-                    </p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check-circle"></i> Instalação de SSD</li>
-                        <li><i class="fas fa-check-circle"></i> Upgrade de memória RAM</li>
-                        <li><i class="fas fa-check-circle"></i> Troca de HD e backup</li>
-                        <li><i class="fas fa-check-circle"></i> Substituição de componentes</li>
-                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about fade-in">
-        <div class="about-container">
-            <div class="about-content">
-                <h2>Por que escolher a LSOTECH?</h2>
-                <p>
-                    Somos uma empresa especializada em manutenção de computadores localizada 
-                    em Goiânia, com profissionais qualificados e comprometidos em oferecer 
-                    o melhor serviço técnico para nossos clientes.
-                </p>
-                <p>
-                    Com anos de experiência no mercado, entendemos as necessidades de usuários 
-                    domésticos e pequenas empresas, oferecendo soluções personalizadas e 
-                    atendimento de qualidade.
-                </p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <div class="feature-icon">
+        <!-- Services Section -->
+        <section class="services section" id="services">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Nossos Serviços</h2>
+                    <p class="section__subtitle">
+                        Oferecemos soluções completas em manutenção de computadores com foco na qualidade e satisfação do cliente
+                    </p>
+                </div>
+                
+                <div class="services__container grid">
+                    <article class="service__card">
+                        <div class="service__icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3 class="service__title">Formatação e Reinstalação</h3>
+                        <p class="service__description">
+                            Formatação completa do sistema operacional com reinstalação de Windows, Linux ou macOS. Inclui instalação de drivers essenciais e programas básicos.
+                        </p>
+                        <ul class="service__features">
+                            <li><i class="fas fa-check"></i> Backup de dados importantes</li>
+                            <li><i class="fas fa-check"></i> Instalação de drivers atualizados</li>
+                            <li><i class="fas fa-check"></i> Configuração básica do sistema</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service__card">
+                        <div class="service__icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <h3 class="service__title">Limpeza Física e Lógica</h3>
+                        <p class="service__description">
+                            Limpeza completa interna e externa do equipamento, remoção de vírus, malware e otimização do sistema para melhor performance.
+                        </p>
+                        <ul class="service__features">
+                            <li><i class="fas fa-check"></i> Limpeza interna de componentes</li>
+                            <li><i class="fas fa-check"></i> Remoção de vírus e malware</li>
+                            <li><i class="fas fa-check"></i> Otimização do sistema</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="service__card">
+                        <div class="service__icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="service__title">Upgrade de Hardware</h3>
+                        <p class="service__description">
+                            Troca e upgrade de componentes como memória RAM, HD/SSD, placa de vídeo e outros componentes para melhorar a performance do seu equipamento.
+                        </p>
+                        <ul class="service__features">
+                            <li><i class="fas fa-check"></i> Análise de compatibilidade</li>
+                            <li><i class="fas fa-check"></i> Instalação profissional</li>
+                            <li><i class="fas fa-check"></i> Teste de funcionamento</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="about__container container grid">
+                <div class="about__data">
+                    <h2 class="section__title">Sobre a LSOTECH</h2>
+                    <p class="about__description">
+                        A LSOTECH é uma empresa especializada em manutenção de computadores localizada em Goiânia, dedicada a oferecer soluções técnicas de qualidade para usuários domésticos e pequenas empresas.
+                    </p>
+                    <p class="about__description">
+                        Nossa equipe possui ampla experiência em assistência técnica, garantindo serviços rápidos, eficientes e com preços justos. Trabalhamos com transparência e comprometimento para resolver os problemas do seu equipamento.
+                    </p>
+                    
+                    <div class="about__info">
+                        <div class="about__info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Localização</h4>
+                                <p>Goiânia - GO</p>
+                            </div>
+                        </div>
+                        <div class="about__info-item">
+                            <i class="fas fa-id-card"></i>
+                            <div>
+                                <h4>CNPJ</h4>
+                                <p>52.189-098/0001-70</p>
+                            </div>
+                        </div>
+                        <div class="about__info-item">
                             <i class="fas fa-award"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Profissionais Qualificados</h4>
-                            <p>Técnicos experientes e certificados para garantir o melhor serviço</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Atendimento Rápido</h4>
-                            <p>Resposta ágil e prazo de entrega respeitado</p>
+                            <div>
+                                <h4>Especialização</h4>
+                                <p>Manutenção de Computadores</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Garantia de Serviço</h4>
-                            <p>Todos os serviços acompanhados de garantia</p>
+                </div>
+                
+                <div class="about__image">
+                    <div class="about__illustration">
+                        <i class="fas fa-tools about__main-icon"></i>
+                        <div class="about__stats">
+                            <div class="stat__item">
+                                <i class="fas fa-users"></i>
+                                <span>Clientes Satisfeitos</span>
+                            </div>
+                            <div class="stat__item">
+                                <i class="fas fa-clock"></i>
+                                <span>Atendimento Rápido</span>
+                            </div>
+                            <div class="stat__item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Garantia de Qualidade</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="about-image">
-                <div class="about-illustration">
-                    <i class="fas fa-user-cog"></i>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact fade-in">
-        <div class="contact-container">
-            <h2>Pronto para um Computador Rápido?</h2>
-            <p>
-                Entre em contato conosco agora mesmo e solicite um orçamento gratuito. 
-                Atendimento personalizado e profissional para resolver todos os seus problemas técnicos.
-            </p>
-            <a href="https://wa.me/556292923736?text=Olá%20LSOTECH!%20Gostaria%20de%20solicitar%20um%20orçamento%20grátis%20para%20manutenção%20de%20computador." 
-               target="_blank" 
-               class="contact-button">
-                <i class="fab fa-whatsapp"></i>
-                Solicitar Orçamento Grátis
-            </a>
-            <div class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>Telefone</h4>
-                    <p>(62) 9-8292-3736</p>
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Entre em Contato</h2>
+                    <p class="section__subtitle">
+                        Solicite seu orçamento gratuito e tire suas dúvidas sobre nossos serviços
+                    </p>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Localização</h4>
-                    <p>Goiânia - GO</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-clock"></i>
-                    <h4>Horário</h4>
-                    <p>Seg à Sex: 8h às 18h<br>Sáb: 8h às 12h</p>
+                
+                <div class="contact__container">
+                    <div class="contact__content">
+                        <div class="contact__info">
+                            <div class="contact__info-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h4>WhatsApp</h4>
+                                    <p>(62) 9-8292-3736</p>
+                                </div>
+                            </div>
+                            <div class="contact__info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Localização</h4>
+                                    <p>Goiânia - Goiás</p>
+                                </div>
+                            </div>
+                            <div class="contact__info-item">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Horário de Atendimento</h4>
+                                    <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__cta">
+                            <h3>Precisa de Assistência Técnica?</h3>
+                            <p>Entre em contato conosco pelo WhatsApp e receba um orçamento gratuito para o seu equipamento.</p>
+                            <a href="https://wa.me/5562982923736?text=Olá! Gostaria de solicitar um orçamento para manutenção do meu computador." class="button button--primary button--large" target="_blank" rel="noopener">
+                                <i class="fab fa-whatsapp"></i>
+                                Solicitar Orçamento Grátis
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">LSOTECH</div>
-            <p class="footer-text">
-                Especialistas em manutenção de computadores em Goiânia.<br>
-                Formatação, limpeza e upgrade de hardware com qualidade e garantia.
-            </p>
-            <div class="footer-bottom">
-                <p>&copy; 2025 LSOTECH - Manutenção de Computadores</p>
-                <p>CNPJ: 52.189.098/0001-70</p>
-                <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.7;">
-                    Todos os direitos reservados | Goiânia - GO
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__content">
+                <div class="footer__logo">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>LSOTECH</span>
+                </div>
+                <p class="footer__description">
+                    Manutenção de computadores em Goiânia com qualidade e agilidade.
                 </p>
+            </div>
+            
+            <div class="footer__info">
+                <p><strong>CNPJ:</strong> 52.189-098/0001-70</p>
+                <p><strong>WhatsApp:</strong> (62) 9-8292-3736</p>
+                <p><strong>Localização:</strong> Goiânia - GO</p>
+            </div>
+        </div>
+        
+        <div class="footer__bottom">
+            <div class="container">
+                <p>&copy; 2024 LSOTECH. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/556292923736?text=Olá%20LSOTECH!%20Gostaria%20de%20solicitar%20um%20orçamento%20grátis%20para%20manutenção%20de%20computador." 
-       target="_blank" 
-       class="whatsapp-float" 
-       aria-label="Contato via WhatsApp">
+    <!-- WhatsApp Fixed Button -->
+    <a href="https://wa.me/5562982923736?text=Olá! Gostaria de solicitar um orçamento para manutenção do meu computador." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contato via WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Mobile menu toggle
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                this.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                
-                // Animate hamburger icon
-                const spans = this.querySelectorAll('span');
-                if (this.classList.contains('active')) {
-                    spans[0].style.transform = 'rotate(45deg) translateY(10px)';
-                    spans[1].style.opacity = '0';
-                    spans[2].style.transform = 'rotate(-45deg) translateY(-10px)';
-                } else {
-                    spans[0].style.transform = 'none';
-                    spans[1].style.opacity = '1';
-                    spans[2].style.transform = 'none';
-                }
-            });
-        }
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', function() {
-                navLinks.classList.remove('active');
-                mobileToggle.classList.remove('active');
-                const spans = mobileToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            });
-        });
-
-        // Enhanced service card interactions
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Parallax effect for hero section
-        let ticking = false;
-        
-        function updateParallax() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const heroContent = document.querySelector('.hero-content');
-            
-            if (hero && scrolled < hero.offsetHeight) {
-                const rate = scrolled * -0.3;
-                hero.style.transform = `translateY(${rate}px)`;
-            }
-            
-            ticking = false;
-        }
-        
-        function requestParallaxUpdate() {
-            if (!ticking) {
-                requestAnimationFrame(updateParallax);
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', requestParallaxUpdate);
-
-        // Counter animation for stats
-        function animateCounter(element, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                element.textContent = value + (element.dataset.suffix || '');
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // Observe stats section for counter animation
-        const statsObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach((stat, index) => {
-                        const text = stat.textContent;
-                        const hasPlus = text.includes('+');
-                        const hasPercent = text.includes('%');
-                        const number = parseInt(text.replace(/[^0-9]/g, ''));
-                        
-                        stat.dataset.suffix = hasPlus ? '+' : hasPercent ? '%' : '';
-                        animateCounter(stat, 0, number, 2000);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const heroStats = document.querySelector('.hero-stats');
-        if (heroStats) {
-            statsObserver.observe(heroStats);
-        }
-
-        // Enhanced WhatsApp button animation
-        const whatsappButton = document.querySelector('.whatsapp-float');
-        if (whatsappButton) {
-            setInterval(() => {
-                whatsappButton.style.transform = 'scale(1.15)';
-                setTimeout(() => {
-                    whatsappButton.style.transform = 'scale(1)';
-                }, 200);
-            }, 4000);
-        }
-
-        // Service card click to WhatsApp with service name
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.style.cursor = 'pointer';
-            card.addEventListener('click', function(e) {
-                // Don't trigger if clicking on a link inside the card
-                if (e.target.tagName !== 'A') {
-                    const serviceName = this.querySelector('.service-title').textContent;
-                    const message = `Olá LSOTECH! Gostaria de um orçamento para: ${serviceName}`;
-                    const whatsappUrl = `https://wa.me/556292923736?text=${encodeURIComponent(message)}`;
-                    window.open(whatsappUrl, '_blank');
-                }
-            });
-        });
-
-        // Loading animation
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '0';
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.5s ease';
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Add staggered animations to service cards
-        window.addEventListener('load', function() {
-            const serviceCards = document.querySelectorAll('.service-card');
-            serviceCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
-
-        // Performance optimization
-        let rafId;
-        
-        function handleScroll() {
-            if (rafId) {
-                cancelAnimationFrame(rafId);
-            }
-            
-            rafId = requestAnimationFrame(() => {
-                const header = document.querySelector('header');
-                if (window.scrollY > 100) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', handleScroll, { passive: true });
-
-        // Enhanced keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            // Close mobile menu on ESC
-            if (e.key === 'Escape') {
-                const navLinks = document.querySelector('.nav-links');
-                const mobileToggle = document.querySelector('.mobile-toggle');
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileToggle.classList.remove('active');
-                }
-            }
-        });
-
-        // Form validation helper (if forms are added later)
-        function validatePhone(phone) {
-            const regex = /^[\d\s\-\(\)]+$/;
-            return regex.test(phone) && phone.replace(/\D/g, '').length >= 10;
-        }
-
-        // Add lazy loading for images if needed
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                            observer.unobserve(img);
-                        }
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // Console greeting for developers
-        console.log('%cLSOTECH', 'font-size: 40px; font-weight: bold; color: #2563EB;');
-        console.log('%cManutenção de Computadores - Goiânia', 'font-size: 14px; color: #4B5563;');
-        console.log('%cDesenvolvido com ❤️ para oferecer a melhor experiência', 'font-size: 12px; color: #10B981;');
-    </script>
-
-    <!-- Additional mobile menu styles -->
-    <style>
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 72px;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
-                box-shadow: var(--shadow-lg);
-                transform: translateX(-100%);
-                opacity: 0;
-                pointer-events: none;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-links.active {
-                transform: translateX(0);
-                opacity: 1;
-                pointer-events: all;
-            }
-            
-            .nav-links li {
-                text-align: center;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 0.5rem;
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
 </html>
